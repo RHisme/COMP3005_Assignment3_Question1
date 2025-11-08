@@ -5,12 +5,13 @@ void ManageStudentControl::getAllStudent() const {
         //Create a transaction from the connection given by db.h
         pqxx::read_transaction tx(DB());
 
-        //Make a query
+        //Make a query and save the result to rows
         auto rows = tx.exec(
             "SELECT student_id, first_name, last_name, email, enrollment_date "
             "FROM students ORDER BY student_id;"
         );
 
+        //Return a message if the result is empty
         if (rows.empty()) {
             cout << "No students found.\n";
             return;
@@ -67,7 +68,7 @@ void ManageStudentControl::updateStudentEmail(int student_id, const string& new_
     try {
         pqxx::work tx(DB());
 
-        //Update the student's email
+        //Query to update the student's email. Using exec_params to parse parameters
         pqxx::result r = tx.exec_params(
            "UPDATE students "
            "SET email = $1 "
@@ -104,7 +105,7 @@ void ManageStudentControl::deleteStudent() {
         //Create a transaction
         pqxx::work tx(DB());  // Start transaction
 
-        // Delete the student
+        // Query to delete the student
         pqxx::result r = tx.exec_params(
             "DELETE FROM students WHERE student_id = $1 RETURNING student_id;",
             student_id

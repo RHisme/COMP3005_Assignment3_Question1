@@ -9,6 +9,7 @@
 
 using namespace std;
 
+//This class is the boundary object. It is used to interact with users.
 class View {
     public:
        void displayView() const;

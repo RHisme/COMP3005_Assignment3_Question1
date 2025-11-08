@@ -4,7 +4,7 @@
 
 int main() {
     try {
-        //Connect to my local db
+        //Connect to the local db
         initDB("host=localhost port=5432 dbname=COMP3005_A3_Q1 user=postgres password=HQVinh2803<3 sslmode=disable");
         std::cout << "Connected to: " << DB().dbname() << "\n";
 

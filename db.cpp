@@ -10,13 +10,19 @@ static std::unique_ptr<pqxx::connection> g_conn;
 void initDB(const std::string& connection_str) {
     //Make a connection
     g_conn = std::make_unique<pqxx::connection>(connection_str);
+
+    //If the connection is open, return an error message
     if (!g_conn->is_open())
         throw std::runtime_error("Failed to open DB connection");
 }
 
 //Dereference the pointer and return the connection.
 pqxx::connection& DB() {
+
+    //Return an error message if the connection is not found
     if (!g_conn || !g_conn->is_open())
         throw std::runtime_error("DB not initialized");
+
+    //Return the global connection
     return *g_conn;
 }

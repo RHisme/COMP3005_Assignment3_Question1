@@ -1,0 +1,41 @@
+# Ignore all build folders
+/cmake-build-*
+/build/
+/Debug/
+/Release/
+/out/
+/bin/
+
+# CLion & CMake files
+.idea/
+CMakeCache.txt
+CMakeFiles/
+Makefile
+*.cbp
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.user
+*.ninja
+*.ninja_deps
+*.ninja_log
+
+# Compiled binaries & libs
+*.exe
+*.dll
+*.pdb
+*.obj
+*.lib
+*.log
+
+# macOS / Windows junk
+.DS_Store
+Thumbs.db
+
+# Backups & temp
+*.old
+*.bak
+
+# Private info (never upload passwords)
+config.txt
+*.env

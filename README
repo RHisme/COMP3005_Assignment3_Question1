@@ -1,0 +1,59 @@
+Demonstration link: https://youtu.be/wgwzzkYciXU
+
+This project is a simple C++ console-based Student Management System that connects to a PostgreSQL database using the libpqxx library.
+
+It allows users to:
+
+    Display all current students
+
+    Add a new student
+
+    Update a student’s email address
+
+    Delete a student record
+
+The program is menu-driven and loops until the user chooses to exit.
+
+Requirements:
+    Component	        Description
+    CLion IDE	        Used for building and running the project
+    Compiler	        Microsoft Visual Studio (MSVC)
+    CMake	            Managed automatically by CLion
+    PostgreSQL	        Installed locally (v14 or later recommended)
+    pgAdmin 4	        For database and table creation
+    vcpkg	            For dependency management
+    libpqxx	            PostgreSQL C++ client library (libpqxx:x64-windows)
+
+
+Database Setup:
+
+1) Open pgAdmin 4 and connect to your local PostgreSQL server.
+
+2) Create a new database: CREATE DATABASE COMP3005_A3_Q1;
+
+3) Open the SQLQuery.txt file, copy and paste the queries to your PostGreSQL query tool to create table and initialize data.
+
+4) Change the initDB() in main.cpp so that it matches your database info.
+
+
+Installation and setup:
+1)Download and install CLion
+
+2)Open PowerShell or Command Prompt and run:
+    vcpkg integrate install
+    vcpkg install libpqxx:x64-windows
+
+3)Download and install MSVC compiler from: https://visualstudio.microsoft.com/downloads/
+
+4)Configure CLion:
+    In the setting -> Build, Execution, Deployment -> Toolchain -> choose Visual Studio (MSVC)
+    In the setting -> Build, Execution, Deployment -> CMake Options: -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake
+
+
+Build:
+Open the project folder -> Click Build -> Build Project
+
+Run:
+Then click "run" icon to run the program.
+
+
